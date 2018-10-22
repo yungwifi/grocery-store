@@ -17,7 +17,7 @@ const productController = {
                 res.send(product)
             })
     },
-    new: (req, res) => {
+    create: (req, res) => {
         const storeId = req.params.storesId
         Store.findById(storeId)
             .then(store => {
@@ -46,6 +46,12 @@ const productController = {
             .then(product => {
                 res.redirect(`/stores/${storeId}/products/${productId}`)
             })
+    },
+    new: (req, res) => {
+        res.send(`Hello from Products New route`)
+    },
+    edit: (req, res) => {
+        res.send(`Hellow from Products Edit route`)
     }
 }
 
