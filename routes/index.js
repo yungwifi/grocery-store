@@ -19,7 +19,10 @@ router.post('/stores/:storesId/products', productController.new)
 
 //delete routes 
 router.delete('/stores/:storesId', storeController.delete)
-module.exports = router
+router.delete('/stores/:storesId/products/:productId', productController.delete)
+
 
 //update routes 
 router.patch('/stores/:storesId', storeController.update)
+
+module.exports = router

@@ -20,8 +20,22 @@ const productController = {
     },
     new: (req, res) => {
         const storeId = req.params.storesId
-        console.log(req.body)
-        Product.create(req.body)
+        Store.findById(storeId)
+            .then(store => {
+                const products = store.products
+                Product.create(req.body)
+                    .then(newProduct => {
+                        products.push(newProduct)
+                        store.save()
+                        res.redirect(`/stores/${storeId}`)
+                    })
+
+            })
+    },
+    delete: (req, res) => {
+        const storeId = req.params.storesId
+        const productId = req.params.productId
+        Product.findByIdAndDelete(productId)
             .then(() => {
                 res.redirect(`/stores/${storeId}`)
             })
