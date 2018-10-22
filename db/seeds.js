@@ -37,6 +37,7 @@ const uno = new Product({
     price: 10,
 })
 
+
 const kroger = new Store({
     name: "Kroger",
     location: "Edgewood Shopping Center",
@@ -60,6 +61,7 @@ const walmart = new Store({
 console.log(uno, television, laptop, couch)
 
 Store.remove({})
+    .then(() => Product.insertMany([laptop, shampoo, bread, couch, television, baseballBat, uno]))
     .then(() => kroger.save())
     .then(() => target.save())
     .then(() => walmart.save())

@@ -4,7 +4,7 @@ const product = require('../models/Product')
 const productController = {
     index: (req, res) => {
         const storeId = req.params.storesId
-        store.findById(storeId)
+        store.findById(storeId).populate('products')
             .then(store => {
                 const products = store.products
                 res.send(products)
@@ -12,7 +12,7 @@ const productController = {
     },
     show: (req, res) => {
         const storeId = req.params.storesId
-        store.findById(storeId)
+        store.findById(storeId).populate('products')
             .then(store => {
                 const product = store.products.id(req.params.productId)
                 console.log("PRODUCT", product)
