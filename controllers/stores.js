@@ -11,7 +11,7 @@ const storeController = {
         const storeId = req.params.storesId
         Store.findById(storeId).populate(`products`)
             .then((singleStore) => {
-                res.send({ singleStore: singleStore })
+                res.send(singleStore)
             })
     },
     create: (req, res) => {
