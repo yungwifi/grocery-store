@@ -14,6 +14,7 @@ router.get('/stores/:storesId/products/:productId', productController.show)
 
 //create routes
 router.post('/stores', storeController.new)
+router.post('/stores/:storesId/products', productController.new)
 
 
 //delete routes 
