@@ -14,7 +14,6 @@ const productController = {
         const productId = req.params.productId
         Product.findById(productId)
             .then(product => {
-                console.log(`PRODUCT`, product)
                 res.send(product)
             })
     },
@@ -38,6 +37,14 @@ const productController = {
         Product.findByIdAndDelete(productId)
             .then(() => {
                 res.redirect(`/stores/${storeId}`)
+            })
+    },
+    update: (req, res) => {
+        const storeId = req.params.storesId
+        const productId = req.params.productId
+        Product.findByIdAndUpdate(productId, req.body)
+            .then(product => {
+                res.redirect(`/stores/${storeId}/products/${productId}`)
             })
     }
 }

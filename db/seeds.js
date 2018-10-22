@@ -58,8 +58,6 @@ const walmart = new Store({
     products: [couch, baseballBat]
 })
 
-console.log(uno, television, laptop, couch)
-
 Store.remove({})
     .then(() => Product.insertMany([laptop, shampoo, bread, couch, television, baseballBat, uno]))
     .then(() => kroger.save())

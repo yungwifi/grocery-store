@@ -24,5 +24,6 @@ router.delete('/stores/:storesId/products/:productId', productController.delete)
 
 //update routes 
 router.patch('/stores/:storesId', storeController.update)
+router.patch('/stores/:storesId/products/:productId', productController.update)
 
 module.exports = router
